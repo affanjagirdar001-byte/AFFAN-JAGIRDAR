@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Affan Jagirdar | Farming • Biryani • Hospitality</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #0b100c;
+            color: #f7f3e8;
+            line-height: 1.6;
+        }
+
+        :root {
+            --green: #7ca86b;
+            --dark-green: #172218;
+            --cream: #f7f3e8;
+            --gold: #c9a55b;
+            --muted: #aeb6aa;
+            --card: #121a14;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8, 13, 9, 0.82);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .logo {
+            font-family: "DM Serif Display", serif;
+            font-size: 27px;
+            color: var(--cream);
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        nav ul li a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--gold);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(rgba(7,12,8,0.62), rgba(7,12,8,0.88)),
+                url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=90")
+                center/cover;
+        }
+
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding-top: 70px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 15px;
+            border: 1px solid rgba(201,165,91,0.5);
+            border-radius: 30px;
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: "DM Serif Display", serif;
+            font-size: clamp(55px, 9vw, 120px);
+            line-height: 0.95;
+            max-width: 900px;
+        }
+
+        .hero h1 span {
+            color: var(--green);
+        }
+
+        .hero p {
+            margin-top: 30px;
+            max-width: 620px;
+            color: #c5ccc3;
+            font-size: 18px;
+        }
+
+        .buttons {
+            margin-top: 35px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: var(--cream);
+            color: #111;
+        }
+
+        .secondary {
+            border: 1px solid #777;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        /* GENERAL */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-label {
+            color: var(--gold);
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: "DM Serif Display", serif;
+            font-size: clamp(40px, 5vw, 65px);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            max-width: 650px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #101710;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 550px;
+            border-radius: 25px;
+            background:
+                linear-gradient(transparent, rgba(0,0,0,.5)),
+                url("https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=85")
+                center/cover;
+        }
+
+        .about-text p {
+            color: #b8c0b5;
+            margin: 20px 0;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .stat {
+            background: var(--card);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,.06);
+        }
+
+        .stat h3 {
+            color: var(--gold);
+            font-size: 27px;
+        }
+
+        .stat p {
+            margin: 0;
+            font-size: 12px;
+        }
+
+        /* FARMING */
+
+        .farming {
+            background: #0b100c;
+        }
+
+        .cards {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255,255,255,.06);
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(201,165,91,.4);
+        }
+
+        .icon {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* BIRYANI */
+
+        .biryani {
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(90deg, rgba(8,10,7,.95), rgba(8,10,7,.45)),
+                url("https://images.unsplash.com/photo-1563379091339-03246963d51a?auto=format&fit=crop&w=2000&q=90")
+                center/cover;
+        }
+
+        .biryani-content {
+            max-width: 650px;
+        }
+
+        .biryani-content p {
+            color: #d0d0c8;
+            margin-top: 20px;
+        }
+
+        .menu-box {
+            margin-top: 35px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .menu-item {
+            background: rgba(12,15,11,.78);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,.1);
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .menu-item strong {
+            display: block;
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .menu-item span {
+            color: #bbb;
+            font-size: 13px;
+        }
+
+        /* HOTEL */
+
+        .hotel {
+            background: #111811;
+        }
+
+        .hotel-grid {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .hotel-main {
+            min-height: 500px;
+            border-radius: 25px;
+            padding: 40px;
+            display: flex;
+            align-items: end;
+            background:
+                linear-gradient(transparent, rgba(0,0,0,.8)),
+                url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85")
+                center/cover;
+        }
+
+        .hotel-main h3 {
+            font-family: "DM Serif Display", serif;
+            font-size: 45px;
+        }
+
+        .hotel-side {
+            display: grid;
+            gap: 25px;
+        }
+
+        .hotel-box {
+            border-radius: 25px;
+            padding: 35px;
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,.06);
+        }
+
+        .hotel-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .hotel-box p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* QUOTE */
+
+        .quote {
+            text-align: center;
+            background: #0b100c;
+        }
+
+        .quote h2 {
+            font-family: "DM Serif Display", serif;
+            font-size: clamp(38px, 5vw, 65px);
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .quote p {
+            color: var(--gold);
+            margin-top: 20px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #101710;
+            text-align: center;
+        }
+
+        .contact-box {
+            max-width: 750px;
+            margin: 40px auto 0;
+            padding: 45px;
+            border-radius: 25px;
+            background: var(--card);
+            border: 1px solid rgba(255,255,255,.07);
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .contact-links a {
+            text-decoration: none;
+            color: white;
+            border: 1px solid #555;
+            padding: 11px 18px;
+            border-radius: 25px;
+            transition: .3s;
+        }
+
+        .contact-links a:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 30px 7%;
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+            border-top: 1px solid rgba(255,255,255,.06);
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            section {
+                padding: 75px 5%;
+            }
+
+            .about-grid,
+            .hotel-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .menu-box {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 50px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hotel-main {
+                min-height: 380px;
+            }
+
+            .hotel-main h3 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">
+        Affan <span>Jagirdar.</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#farming">Farming</a></li>
+        <li><a href="#biryani">Biryani</a></li>
+        <li><a href="#hotel">Hotel</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="tag">
+            Farming • Food • Hospitality
+        </div>
+
+        <h1>
+            Affan<br>
+            <span>Jagirdar.</span>
+        </h1>
+
+        <p>
+            A place where the beauty of farming meets the taste of
+            authentic biryani and the warmth of hospitality.
+        </p>
+
+        <div class="buttons">
+            <a href="#biryani" class="btn primary">
+                Explore Biryani
+            </a>
+
+            <a href="#about" class="btn secondary">
+                Discover More
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+    <div class="about-grid">
+
+        <div class="about-image"></div>
+
+        <div class="about-text">
+
+            <div class="section-label">
+                The Story
+            </div>
+
+            <h2 class="section-title">
+                From the soil<br>to the table.
+            </h2>
+
+            <p>
+                Welcome to the world of Affan Jagirdar — where tradition,
+                hard work and hospitality come together.
+            </p>
+
+            <p>
+                Farming teaches patience. Cooking teaches creativity.
+                Hospitality teaches us the value of people.
+                This website brings all three together in one place.
+            </p>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h3>01</h3>
+                    <p>Farming</p>
+                </div>
+
+                <div class="stat">
+                    <h3>02</h3>
+                    <p>Biryani</p>
+                </div>
+
+                <div class="stat">
+                    <h3>03</h3>
+                    <p>Hospitality</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FARMING -->
+
+<section class="farming" id="farming">
+
+    <div class="section-label">
+        The Farm
+    </div>
+
+    <h2 class="section-title">
+        Rooted in nature.
+    </h2>
+
+    <p class="section-description">
+        Farming is more than growing crops. It is patience, discipline,
+        responsibility and a connection with the land.
+    </p>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">🌱</div>
+
+            <h3>Fresh Crops</h3>
+
+            <p>
+                Fresh and naturally grown produce, straight from the
+                fields with care and dedication.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🌾</div>
+
+            <h3>Traditional Farming</h3>
+
+            <p>
+                Respecting traditional farming values while embracing
+                modern ideas and better practices.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🚜</div>
+
+            <h3>Hard Work</h3>
+
+            <p>
+                Every successful harvest begins with patience, consistency
+                and countless hours of work.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BIRYANI -->
+
+<section class="biryani" id="biryani">
+
+    <div class="biryani-content">
+
+        <div class="section-label">
+            Signature Kitchen
+        </div>
+
+        <h2 class="section-title">
+            Biryani made<br>with character.
+        </h2>
+
+        <p>
+            Aromatic rice, carefully selected spices and slow cooking —
+            the perfect combination for a memorable biryani experience.
+        </p>
+
+
+        <div class="menu-box">
+
+            <div class="menu-item">
+                <strong>Chicken Biryani</strong>
+                <span>Classic aromatic chicken biryani</span>
+            </div>
+
+            <div class="menu-item">
+                <strong>Mutton Biryani</strong>
+                <span>Rich and traditional mutton preparation</span>
+            </div>
+
+            <div class="menu-item">
+                <strong>Special Rice</strong>
+                <span>Fragrant rice with signature spices</span>
+            </div>
+
+            <div class="menu-item">
+                <strong>House Special</strong>
+                <span>A unique Affan Jagirdar creation</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOTEL -->
+
+<section class="hotel" id="hotel">
+
+    <div class="section-label">
+        Hospitality
+    </div>
+
+    <h2 class="section-title">
+        Stay. Eat. Relax.
+    </h2>
+
+    <p class="section-description">
+        A welcoming place where good food, comfortable spaces and
+        memorable moments come together.
+    </p>
+
+
+    <div class="hotel-grid">
+
+        <div class="hotel-main">
+
+            <div>
+                <h3>
+                    Affan Jagirdar<br>
+                    Hospitality
+                </h3>
+
+                <p>
+                    Comfort • Food • Memories
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="hotel-side">
+
+            <div class="hotel-box">
+
+                <h3>🏨 Comfortable Stay</h3>
+
+                <p>
+                    Relax in a peaceful environment designed for
+                    comfort and hospitality.
+                </p>
+
+            </div>
+
+
+            <div class="hotel-box">
+
+                <h3>🍽️ Great Food</h3>
+
+                <p>
+                    Enjoy flavorful dishes inspired by traditional
+                    Indian food and authentic biryani.
+                </p>
+
+            </div>
+
+
+            <div class="hotel-box">
+
+                <h3>🤝 Warm Hospitality</h3>
+
+                <p>
+                    Every guest deserves a welcoming experience,
+                    from the first hello to the final goodbye.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUOTE -->
+
+<section class="quote">
+
+    <h2>
+        “Good food fills the stomach.
+        Good hospitality fills the heart.”
+    </h2>
+
+    <p>
+        — Affan Jagirdar
+    </p>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="section-label">
+        Get In Touch
+    </div>
+
+    <h2 class="section-title">
+        Let's connect.
+    </h2>
+
+    <div class="contact-box">
+
+        <p>
+            Want to know more about Affan Jagirdar,
+            farming, food or hospitality?
+        </p>
+
+        <div class="contact-links">
+
+            <a href="mailto:affan@example.com">
+                ✉ Email
+            </a>
+
+            <a href="#">
+                📸 Instagram
+            </a>
+
+            <a href="#">
+                📍 Location
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 <span>Affan Jagirdar</span>.
+    All rights reserved.
+
+</footer>
+
+
+</body>
+</html>
